@@ -105,7 +105,7 @@ LAB SETUP INSTRUCTIONS
  */
 
 //import express
-const express = require("express");
+import express from "express"
 
 // create express app instance to create web server
 const app = express();
@@ -124,7 +124,7 @@ app.get("/echo", (req, res) => {
 });
 
 // Route params: /profile/First/Last
-age.get("/profile':first/:last", (req, res) => {
+app.get("/profile':first/:last", (req, res) => {
    const { first, last } = req.params;
 
    res.json({
