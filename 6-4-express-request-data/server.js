@@ -108,7 +108,7 @@ LAB SETUP INSTRUCTIONS
 const express = require("express");
 
 // create express app instance to create web server
-const app = exprss();
+const app = express();
 
 
 // Query params: /echo?name=Ali&age=22
@@ -119,16 +119,16 @@ app.get("/echo", (req, res) => {
       });
    }
 
-   res.json({ ok: true, name, age, msg: `Hello` 
+   res.json({ ok: true, name, age, msg: `Hello ${name}, you are ${age}` 
    });
 });
 
 // Route params: /profile/First/Last
-age.get("./profile':first/:last", (req, res) => {
-   const { first, last } = req.param;
+age.get("/profile':first/:last", (req, res) => {
+   const { first, last } = req.params;
 
    res.json({
-      ok:true, fullname: `${first} ${last}`
+      ok: true, fullName: `${first} ${last}`
    });
 });
 
@@ -153,6 +153,6 @@ app.get("/users/:userId", (req, res) => {
 
 // Start the server by listening
 app.listen(3000, () => {
-   console.log("API is running at http://localhost:3000");
+   console.log("API running at http://localhost:3000");
 });
 
